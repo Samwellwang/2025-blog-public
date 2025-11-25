@@ -68,7 +68,34 @@ export default function SocialButtons() {
 							稀土掘金
 						</motion.a>
 					)}
+					{/*<motion.a*/}
+					{/*	href="https://bilibili.com"*/}
+					{/*	className="card items-center gap-2 rounded-xl  bg-pink-400 text-white">*/}
+					{/*	<span>*/}
+					{/*		Bilibili*/}
+					{/*	</span>*/}
+					{/*</motion.a>*/}
+					{/*<motion.a*/}
+					{/*	href="https://bilibili.com"*/}
+					{/*	target="_blank" // 1. 新标签页打开，防止用户流失*/}
 
+					{/*	// 2. 复制同款动画参数，保持交互一致性*/}
+					{/*	initial={{ opacity: 0, scale: 0.6 }}*/}
+					{/*	animate={{ opacity: 1, scale: 1 }}*/}
+					{/*	whileHover={{ scale: 1.05 }}*/}
+					{/*	whileTap={{ scale: 0.95 }}*/}
+
+					{/*	// 3. 完善 Tailwind 样式*/}
+					{/*	// flex items-center gap-2: 让图标和文字水平居中对齐，且有间距*/}
+					{/*	// rounded-xl: 圆角，这很重要，让它看起来像个按钮而不是矩形块*/}
+					{/*	// px-3 py-2: 增加内边距，让文字不要贴着边*/}
+					{/*	// font-medium: 加粗一点点，更像按钮*/}
+					{/*	className="flex items-center gap-2 rounded-xl bg-pink-400 px-3 py-2 font-medium text-white whitespace-nowrap"*/}
+					{/*>*/}
+					{/*	/!* 这里暂时复用一下 JuejinSVG，假装它是 B站图标 *!/*/}
+					{/*	<JuejinSVG className="h-6 w-6" />*/}
+					{/*	<span>B站</span>*/}
+					{/*</motion.a>*/}
 					<motion.button
 						onClick={() => {
 							navigator.clipboard.writeText('yysuni1001@gmail.com').then(() => {

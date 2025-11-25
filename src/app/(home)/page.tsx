@@ -10,6 +10,7 @@ import ShareCard from '@/app/(home)/share-card'
 import AritcleCard from '@/app/(home)/aritcle-card'
 import WriteButtons from '@/app/(home)/write-buttons'
 import LikePosition from './like-position'
+import ThanksCard from '@/app/(home)/thanks-card'
 import { useSize } from '@/hooks/use-size'
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
 	return (
 		<div className='max-sm:flex max-sm:flex-col max-sm:items-center max-sm:gap-6 max-sm:pt-28 max-sm:pb-20'>
 			<ArtCard />
-			<HiCard />
+			<HiCard name = "Samwell" />
 			{!maxSM && <ClockCard />}
 			{!maxSM && <CalendarCard />}
 			{!maxSM && <MusicCard />}
@@ -27,6 +28,7 @@ export default function Home() {
 			<AritcleCard />
 			{!maxSM && <WriteButtons />}
 			<LikePosition />
+			<ThanksCard />
 		</div>
 	)
 }
