@@ -77,7 +77,7 @@ export default function SocialButtons() {
 						animate={{ opacity: 1, scale: 1 }}
 						whileHover={{ scale: 1.05 }}
 						whileTap={{ scale: 0.95 }}
-						className='card btn relative rounded-xl p-1.5 bg-orange-400'>
+						className='card btn relative rounded-xl p-1.5 bg-orange-600'>
 						<EmailSVG />
 					</motion.button>
 				</div>
