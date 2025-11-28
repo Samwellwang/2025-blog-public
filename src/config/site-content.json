@@ -4,14 +4,14 @@
 		"description": "Samwellwang的个人博客"
 	},
 	"theme": {
-		"colorBrand": "#35bfab"
+		"colorBrand": "#09F59C"
 	},
 	"backgroundColors": [
-		"#EDDD62",
-		"#9EE7D1",
-		"#84D68A",
-		"#EDDD62",
-		"#88E6E5",
-		"#a7f3d0"
+		"#9DF1E6",
+		"#4A70BE",
+		"#AD265C",
+		"#D93F62",
+		"#95D1D0",
+		"#1C2423"
 	]
 }
