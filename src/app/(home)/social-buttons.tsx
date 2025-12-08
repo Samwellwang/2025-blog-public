@@ -63,7 +63,7 @@ export default function SocialButtons() {
 							animate={{ opacity: 1, scale: 1 }}
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
-							className='font-averia card relative flex items-center gap-2 rounded-xl bg-[#1d9bf0] text-white px-3 py-2.5 font-medium whitespace-nowrap'>
+							className='font-averia card relative flex items-center gap-2 rounded-xl bg-[#1d9bf0] px-3 py-2.5 font-medium whitespace-nowrap text-white'>
 							<TwitterSVG className='h-6 w-6' /> X (Twitter)
 						</motion.a>
 					)}
@@ -77,7 +77,7 @@ export default function SocialButtons() {
 						animate={{ opacity: 1, scale: 1 }}
 						whileHover={{ scale: 1.05 }}
 						whileTap={{ scale: 0.95 }}
-						className='card btn relative rounded-xl p-1.5 bg-orange-600'>
+						className='card btn relative rounded-xl bg-orange-600 p-1.5'>
 						<EmailSVG />
 					</motion.button>
 				</div>

@@ -19,7 +19,7 @@ export default function Home() {
 	return (
 		<div className='max-sm:flex max-sm:flex-col max-sm:items-center max-sm:gap-6 max-sm:pt-28 max-sm:pb-20'>
 			<ArtCard />
-			<HiCard name = "Samwell" />
+			<HiCard name='Samwell' />
 			{!maxSM && <ClockCard />}
 			{!maxSM && <CalendarCard />}
 			{!maxSM && <MusicCard />}

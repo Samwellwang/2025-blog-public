@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import type { CSSProperties } from 'react'
@@ -45,6 +46,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
 				/>
 
 				<Layout>{children}</Layout>
+				<Analytics />
 				<SpeedInsights />
 			</body>
 		</html>
