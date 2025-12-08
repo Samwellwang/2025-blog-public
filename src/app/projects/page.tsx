@@ -118,21 +118,12 @@ export default function Page() {
 			<div className='flex flex-col items-center justify-center px-6 pt-32 pb-12'>
 				<div className='grid w-full max-w-[1200px] grid-cols-2 gap-6 max-md:grid-cols-1'>
 					{projects.map((project, index) => (
-						<ProjectCard
-							key={project.url}
-							project={project}
-							isEditMode={isEditMode}
-							onUpdate={handleUpdate}
-							onDelete={() => handleDelete(project)}
-						/>
+						<ProjectCard key={project.url} project={project} isEditMode={isEditMode} onUpdate={handleUpdate} onDelete={() => handleDelete(project)} />
 					))}
 				</div>
 			</div>
 
-			<motion.div
-				initial={{ opacity: 0, scale: 0.6 }}
-				animate={{ opacity: 1, scale: 1 }}
-				className='absolute top-4 right-6 flex gap-3 max-sm:hidden'>
+			<motion.div initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} className='absolute top-4 right-6 flex gap-3 max-sm:hidden'>
 				{isEditMode ? (
 					<>
 						<motion.button
@@ -150,12 +141,7 @@ export default function Page() {
 							className='rounded-xl border bg-white/60 px-6 py-2 text-sm'>
 							添加
 						</motion.button>
-						<motion.button
-							whileHover={{ scale: 1.05 }}
-							whileTap={{ scale: 0.95 }}
-							onClick={handleSaveClick}
-							disabled={isSaving}
-							className='brand-btn px-6'>
+						<motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={handleSaveClick} disabled={isSaving} className='brand-btn px-6'>
 							{isSaving ? '保存中...' : buttonText}
 						</motion.button>
 					</>
@@ -170,9 +156,7 @@ export default function Page() {
 				)}
 			</motion.div>
 
-			{isCreateDialogOpen && (
-				<CreateDialog project={editingProject} onClose={() => setIsCreateDialogOpen(false)} onSave={handleSaveProject} />
-			)}
+			{isCreateDialogOpen && <CreateDialog project={editingProject} onClose={() => setIsCreateDialogOpen(false)} onSave={handleSaveProject} />}
 		</>
 	)
 }

@@ -6,12 +6,5 @@
 	"theme": {
 		"colorBrand": "#09F59C"
 	},
-	"backgroundColors": [
-		"#9DF1E6",
-		"#4A70BE",
-		"#AD265C",
-		"#D93F62",
-		"#95D1D0",
-		"#1C2423"
-	]
+	"backgroundColors": ["#9DF1E6", "#4A70BE", "#AD265C", "#D93F62", "#95D1D0", "#1C2423"]
 }

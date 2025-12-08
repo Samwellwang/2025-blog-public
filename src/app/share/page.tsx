@@ -137,9 +137,9 @@ export default function Page() {
 							className='rounded-xl border bg-white/60 px-6 py-2 text-sm'>
 							添加
 						</motion.button>
-					<motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={handleSaveClick} disabled={isSaving} className='brand-btn px-6'>
-						{isSaving ? '保存中...' : buttonText}
-					</motion.button>
+						<motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={handleSaveClick} disabled={isSaving} className='brand-btn px-6'>
+							{isSaving ? '保存中...' : buttonText}
+						</motion.button>
 					</>
 				) : (
 					<motion.button
