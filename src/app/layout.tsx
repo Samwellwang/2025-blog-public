@@ -1,5 +1,5 @@
 import '@/styles/globals.css'
-
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import type { CSSProperties } from 'react'
 import Layout from '@/layout'
@@ -45,6 +45,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
 				/>
 
 				<Layout>{children}</Layout>
+				<SpeedInsights />
 			</body>
 		</html>
 	)
