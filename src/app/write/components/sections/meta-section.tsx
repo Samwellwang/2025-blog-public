@@ -35,7 +35,10 @@ export function MetaSection({ delay = 0 }: MetaSectionProps) {
 						placeholder='设置密码（可选）'
 						className='w-full rounded-lg border bg-white/60 px-3 py-2 text-sm'
 						value={form.password || ''}
-						onChange={e => updateForm({ password: e.target.value || undefined })}
+						onChange={e => {
+							const value = e.target.value.trim() || undefined
+							updateForm({ password: value })
+						}}
 					/>
 					<p className='text-xs text-gray-500'>设置密码后，读者需要输入密码才能查看文章。编辑时留空则保留原密码。</p>
 				</div>

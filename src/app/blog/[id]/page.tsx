@@ -35,7 +35,7 @@ export default function Page() {
 					setError(null)
 
 					// Check if article is password protected and if it's already unlocked
-					if (blogData.config.password) {
+					if (blogData.config.password && blogData.config.password.trim()) {
 						const isUnlockedNow = isUnlocked(slug, blogData.config.password)
 						setUnlockedState(isUnlockedNow)
 					} else {
@@ -57,7 +57,7 @@ export default function Page() {
 	}, [slug, markAsRead])
 
 	const handleUnlock = () => {
-		if (blog?.config.password) {
+		if (blog?.config.password && blog.config.password.trim()) {
 			setUnlocked(slug, blog.config.password)
 			setUnlockedState(true)
 			markAsRead(slug)
@@ -89,7 +89,7 @@ export default function Page() {
 	}
 
 	// Show password protection if article has password and is not unlocked
-	if (blog.config.password && !unlocked) {
+	if (blog.config.password && blog.config.password.trim() && !unlocked) {
 		return <PasswordProtection passwordHash={blog.config.password} slug={slug} onUnlock={handleUnlock} />
 	}
 

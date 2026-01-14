@@ -119,9 +119,9 @@ export async function pushBlog(params: PushBlogParams): Promise<void> {
 
 	// Handle password: hash new password or preserve existing one
 	let passwordHash: string | undefined
-	if (form.password) {
+	if (form.password && form.password.trim()) {
 		// User provided a new password, hash it
-		passwordHash = await hashPassword(form.password)
+		passwordHash = await hashPassword(form.password.trim())
 	} else if (mode === 'edit') {
 		// In edit mode, if no new password provided, try to preserve existing password
 		try {
