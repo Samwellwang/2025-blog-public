@@ -122,27 +122,28 @@ export async function pushBlog(params: PushBlogParams): Promise<void> {
 	if (form.password && form.password.trim()) {
 		// User provided a new password, hash it
 		passwordHash = await hashPassword(form.password.trim())
-	} else if (mode === 'edit') {
-		// In edit mode, if no new password provided, try to preserve existing password
-		try {
-			const existingConfigText = await readTextFileFromRepo(
-				token,
-				GITHUB_CONFIG.OWNER,
-				GITHUB_CONFIG.REPO,
-				`${basePath}/config.json`,
-				GITHUB_CONFIG.BRANCH
-			)
-			if (existingConfigText) {
-				const existingConfig = JSON.parse(existingConfigText)
-				if (existingConfig.password) {
-					passwordHash = existingConfig.password
+		} else if (mode === 'edit') {
+			// In edit mode, if no new password provided, try to preserve existing password
+			try {
+				const existingConfigText = await readTextFileFromRepo(
+					token,
+					GITHUB_CONFIG.OWNER,
+					GITHUB_CONFIG.REPO,
+					`${basePath}/config.json`,
+					GITHUB_CONFIG.BRANCH
+				)
+				if (existingConfigText) {
+					const existingConfig = JSON.parse(existingConfigText)
+					// Preserve existing password if it exists and is not empty
+					if (existingConfig.password && existingConfig.password.trim()) {
+						passwordHash = existingConfig.password.trim()
+					}
 				}
+			} catch (err) {
+				// If we can't read existing config, just continue without password
+				console.warn('Could not read existing config to preserve password:', err)
 			}
-		} catch (err) {
-			// If we can't read existing config, just continue without password
-			console.warn('Could not read existing config to preserve password:', err)
 		}
-	}
 
 	// create blob for config.json
 	const dateStr = form.date || new Date().toISOString().slice(0, 10)
