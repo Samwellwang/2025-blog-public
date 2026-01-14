@@ -217,7 +217,7 @@ export default function BlogPage() {
 												<div className='flex items-center gap-2'>
 													{it.title || it.slug}
 													{it.hasPassword && (
-														<Lock className='h-3.5 w-3.5 shrink-0 text-gray-400' title='此文章受密码保护' />
+														<Lock className='h-3.5 w-3.5 shrink-0 text-gray-400' aria-label='此文章受密码保护' />
 													)}
 												</div>
 												{hasRead && <span className='text-secondary ml-2 text-xs'>[已阅读]</span>}
