@@ -29,6 +29,16 @@ export function MetaSection({ delay = 0 }: MetaSectionProps) {
 					value={form.date}
 					onChange={e => updateForm({ date: e.target.value })}
 				/>
+				<div className='space-y-1'>
+					<input
+						type='password'
+						placeholder='设置密码（可选）'
+						className='w-full rounded-lg border bg-white/60 px-3 py-2 text-sm'
+						value={form.password || ''}
+						onChange={e => updateForm({ password: e.target.value || undefined })}
+					/>
+					<p className='text-xs text-gray-500'>设置密码后，读者需要输入密码才能查看文章。编辑时留空则保留原密码。</p>
+				</div>
 			</div>
 		</motion.div>
 	)

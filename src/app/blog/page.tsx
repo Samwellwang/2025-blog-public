@@ -14,7 +14,7 @@ import { useAuthStore } from '@/hooks/use-auth'
 import { readFileAsText } from '@/lib/file-utils'
 import { cn } from '@/lib/utils'
 import { batchDeleteBlogs } from './services/batch-delete-blogs'
-import { Check } from 'lucide-react'
+import { Check, Lock } from 'lucide-react'
 
 export default function BlogPage() {
 	const { items, loading } = useBlogIndex()
@@ -214,7 +214,12 @@ export default function BlogPage() {
 													'flex-1 truncate text-sm font-medium transition-all',
 													editMode ? null : 'group-hover:text-brand group-hover:translate-x-2'
 												)}>
-												{it.title || it.slug}
+												<div className='flex items-center gap-2'>
+													{it.title || it.slug}
+													{it.hasPassword && (
+														<Lock className='h-3.5 w-3.5 shrink-0 text-gray-400' title='此文章受密码保护' />
+													)}
+												</div>
 												{hasRead && <span className='text-secondary ml-2 text-xs'>[已阅读]</span>}
 											</div>
 											<div className='flex flex-wrap items-center gap-2 max-sm:hidden'>

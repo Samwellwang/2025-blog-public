@@ -4,6 +4,7 @@ export type BlogConfig = {
 	date?: string
 	summary?: string
 	cover?: string
+	password?: string // SHA-256 hash of the password
 }
 
 export type LoadedBlog = {

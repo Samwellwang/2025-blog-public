@@ -5,8 +5,10 @@ import { useParams, useRouter } from 'next/navigation'
 import dayjs from 'dayjs'
 import { motion } from 'motion/react'
 import { BlogPreview } from '@/components/blog-preview'
+import { PasswordProtection } from '@/components/password-protection'
 import { loadBlog, type BlogConfig } from '@/lib/load-blog'
 import { useReadArticles } from '@/hooks/use-read-articles'
+import { isUnlocked, setUnlocked } from '@/lib/password-utils'
 import LiquidGrass from '@/components/liquid-grass'
 
 export default function Page() {
@@ -18,6 +20,7 @@ export default function Page() {
 	const [blog, setBlog] = useState<{ config: BlogConfig; markdown: string; cover?: string } | null>(null)
 	const [error, setError] = useState<string | null>(null)
 	const [loading, setLoading] = useState<boolean>(true)
+	const [unlocked, setUnlockedState] = useState<boolean>(false)
 
 	useEffect(() => {
 		let cancelled = false
@@ -30,7 +33,16 @@ export default function Page() {
 				if (!cancelled) {
 					setBlog(blogData)
 					setError(null)
-					markAsRead(slug)
+
+					// Check if article is password protected and if it's already unlocked
+					if (blogData.config.password) {
+						const isUnlockedNow = isUnlocked(slug, blogData.config.password)
+						setUnlockedState(isUnlockedNow)
+					} else {
+						// No password, always unlocked
+						setUnlockedState(true)
+						markAsRead(slug)
+					}
 				}
 			} catch (e: any) {
 				if (!cancelled) setError(e?.message || '加载失败')
@@ -43,6 +55,14 @@ export default function Page() {
 			cancelled = true
 		}
 	}, [slug, markAsRead])
+
+	const handleUnlock = () => {
+		if (blog?.config.password) {
+			setUnlocked(slug, blog.config.password)
+			setUnlockedState(true)
+			markAsRead(slug)
+		}
+	}
 
 	const title = useMemo(() => (blog?.config.title ? blog.config.title : slug), [blog?.config.title, slug])
 	const date = useMemo(() => dayjs(blog?.config.date).format('YYYY年 M月 D日'), [blog?.config.date])
@@ -68,6 +88,11 @@ export default function Page() {
 		return <div className='text-secondary flex h-full items-center justify-center text-sm'>文章不存在</div>
 	}
 
+	// Show password protection if article has password and is not unlocked
+	if (blog.config.password && !unlocked) {
+		return <PasswordProtection passwordHash={blog.config.password} slug={slug} onUnlock={handleUnlock} />
+	}
+
 	return (
 		<>
 			<BlogPreview
@@ -76,7 +101,7 @@ export default function Page() {
 				tags={tags}
 				date={date}
 				summary={blog.config.summary}
-				cover={blog.cover ? `${origin}${blog.cover}` : undefined}
+				cover={blog.cover}
 				slug={slug}
 			/>
 

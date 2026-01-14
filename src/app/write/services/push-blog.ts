@@ -1,8 +1,9 @@
-import { toBase64Utf8, getRef, createTree, createCommit, updateRef, createBlob, type TreeItem } from '@/lib/github-client'
+import { toBase64Utf8, getRef, createTree, createCommit, updateRef, createBlob, readTextFileFromRepo, type TreeItem } from '@/lib/github-client'
 import { fileToBase64NoPrefix, hashFileSHA256 } from '@/lib/file-utils'
 import { prepareBlogsIndex } from '@/lib/blog-index'
 import { getAuthToken } from '@/lib/auth'
 import { GITHUB_CONFIG } from '@/consts'
+import { hashPassword } from '@/lib/password-utils'
 import type { ImageItem } from '../types'
 import { getFileExt } from '@/lib/utils'
 import { toast } from 'sonner'
@@ -15,6 +16,7 @@ export type PushBlogParams = {
 		tags: string[]
 		date?: string
 		summary?: string
+		password?: string // Plain text password (will be hashed)
 	}
 	cover?: ImageItem | null
 	images?: ImageItem[]
@@ -115,14 +117,44 @@ export async function pushBlog(params: PushBlogParams): Promise<void> {
 		sha: mdBlob.sha
 	})
 
+	// Handle password: hash new password or preserve existing one
+	let passwordHash: string | undefined
+	if (form.password) {
+		// User provided a new password, hash it
+		passwordHash = await hashPassword(form.password)
+	} else if (mode === 'edit') {
+		// In edit mode, if no new password provided, try to preserve existing password
+		try {
+			const existingConfigText = await readTextFileFromRepo(
+				token,
+				GITHUB_CONFIG.OWNER,
+				GITHUB_CONFIG.REPO,
+				`${basePath}/config.json`,
+				GITHUB_CONFIG.BRANCH
+			)
+			if (existingConfigText) {
+				const existingConfig = JSON.parse(existingConfigText)
+				if (existingConfig.password) {
+					passwordHash = existingConfig.password
+				}
+			}
+		} catch (err) {
+			// If we can't read existing config, just continue without password
+			console.warn('Could not read existing config to preserve password:', err)
+		}
+	}
+
 	// create blob for config.json
 	const dateStr = form.date || new Date().toISOString().slice(0, 10)
-	const config = {
+	const config: any = {
 		title: form.title,
 		tags: form.tags,
 		date: dateStr,
 		summary: form.summary,
 		cover: coverPath
+	}
+	if (passwordHash) {
+		config.password = passwordHash
 	}
 	const configBlob = await createBlob(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, toBase64Utf8(JSON.stringify(config, null, 2)), 'base64')
 	treeItems.push({
@@ -143,7 +175,8 @@ export async function pushBlog(params: PushBlogParams): Promise<void> {
 			tags: form.tags,
 			date: dateStr,
 			summary: form.summary,
-			cover: coverPath
+			cover: coverPath,
+			hasPassword: !!passwordHash
 		},
 		GITHUB_CONFIG.BRANCH
 	)

@@ -156,6 +156,8 @@ export const useWriteStore = create<WriteStore>((set, get) => ({
 			}
 
 			// Set form
+			// Note: password is not loaded because we only store the hash
+			// User needs to enter a new password if they want to change it
 			set({
 				mode: 'edit',
 				originalSlug: slug,
@@ -165,7 +167,8 @@ export const useWriteStore = create<WriteStore>((set, get) => ({
 					md: blog.markdown,
 					tags: blog.config.tags || [],
 					date: blog.config.date || new Date().toISOString().slice(0, 10),
-					summary: blog.config.summary || ''
+					summary: blog.config.summary || '',
+					password: blog.config.password ? undefined : undefined // Leave empty, user can set new password
 				},
 				images,
 				cover,

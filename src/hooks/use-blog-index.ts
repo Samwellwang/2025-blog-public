@@ -7,6 +7,7 @@ export type BlogIndexItem = {
 	date: string
 	summary?: string
 	cover?: string
+	hasPassword?: boolean // Indicates if the article is password protected
 }
 
 const fetcher = async (url: string) => {
