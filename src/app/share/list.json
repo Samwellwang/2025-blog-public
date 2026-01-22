@@ -11,8 +11,88 @@
 		"name": "如果你有多个兴趣，不要浪费接下来的2-3年时间",
 		"url": "https://randomarea.com/if-you-have-multiple-interests-do-not-waste-the-next-2-3-years/",
 		"logo": "/images/share/default_article.svg",
-		"description": "介绍如果你有多个兴趣，不要浪费接下来的2-3年时间，非常详细，适合深度学习大模型的原理。",
+		"description": "介绍如果你有多个兴趣，不要浪费接下来的2-3年时间",
 		"tags": ["兴趣", "时间"],
 		"stars": 4
+	},
+	{
+		"name": "Vibe Coding心流保护指南",
+		"url": "https://x.com/wquguru/status/2012415142919815439",
+		"logo": "/images/share/default_article.svg",
+		"description": "Vibe Coding心流保护指南，学习使用Vibe Coding，保持心流状态，提高工作效率。",
+		"tags": ["Twitter", "vibe coding"],
+		"stars": 3
+	},
+	{
+		"name": "2025 大语言模型年度回顾",
+		"url": "https://x.com/HiTw93/status/2012156583078510620",
+		"logo": "/images/share/default_article.svg",
+		"description": "介绍了2025年大语言模型的发展情况，包括模型规模、性能、应用场景等。",
+		"tags": ["Twitter", "大语言模型", "2025年度回顾"],
+		"stars": 3
+	},
+	{
+		"name": "一文带你看懂，火爆全网的Skills到底是个啥。",
+		"url": "https://x.com/Khazix0918/status/2010940910083940382",
+		"logo": "/images/share/default_article.svg",
+		"description": "介绍了claude的skills功能，以及如何使用skills提高工作效率。",
+		"tags": ["Twitter", "skills", "claude"],
+		"stars": 3
+	},
+	{
+		"name": "如果你有多项兴趣爱好，不要浪费接下来的两三年时间-中文翻译版",
+		"url": "https://x.com/RobinSeun/status/2010918022761099422",
+		"logo": "/images/share/default_article.svg",
+		"description": "X 上大火的文章，浏览量超一个亿，适合有多个兴趣爱好的人阅读。",
+		"tags": ["Twitter", "兴趣爱好"],
+		"stars": 3
+	},
+	{
+		"name": "Transformer是什么？2017年那篇“无人问津”的论文，为何成了今天AI爆炸的起点？10分钟速通AI论文天花板《Attention is all you need》",
+		"url": "https://www.bilibili.com/video/BV1G4iMBeEWH/?spm_id_from=333.337.search-card.all.click&vd_source=d88bedd04b427c343def2066e415fda2",
+		"logo": "/images/share/default_article.svg",
+		"description": "介绍了Transformer的原理，以及为什么Transformer成为了今天AI爆炸的起点。",
+		"tags": ["Bilibili", "视频","transformer"],
+		"stars": 3
+	},
+	{
+		"name": "如何做 AI Agent 喜欢的基础软件",
+		"url": "https://mp.weixin.qq.com/s/BZcRwgGZNinBK9K2L38LYg",
+		"logo": "/images/share/default_article.svg",
+		"description": "介绍了如何做 AI Agent 喜欢的基础软件，适合想要了解AI Agent的人阅读。",
+		"tags": ["微信公众号", "文章", "AI Agent"],
+		"stars": 3
+	},
+	{
+		"name": "mapcn - Beautiful map components",
+		"url": "https://github.com/AnmolSaini16/mapcn",
+		"logo": "/images/share/default_article.svg",
+		"description": "一个非常漂亮的地图组件，免费，零配置，一键安装。",
+		"tags": ["GitHub", "地图组件", "前端"],
+		"stars": 4
+	},
+	{
+		"name": "唐杰的2025大模型年度回顾",
+		"url": "https://www.weibo.com/2126427211/QjIYhCmfq?pagetype=profilefeed",
+		"logo": "/images/share/default_article.svg",
+		"description": "来自唐杰（GLM）的2025大模型年度回顾，非常详细，适合深度学习大模型的原理。",
+		"tags": ["微博", "分享"],
+		"stars": 3
+	},
+	{
+		"name": "Awesome-local-LLM",
+		"url": "https://github.com/rafska/Awesome-local-LLM",
+		"logo": "/images/share/default_article.svg",
+		"description": "A curated list of awesome platforms, tools, practices and resources that helps run LLMs locally",
+		"tags": ["GitHub", "LLM", "本地运行", "资源列表"],
+		"stars": 5
+	},
+	{
+		"name": "How AI is transforming work at Anthropic",
+		"url": "https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic",
+		"logo": "/images/share/default_article.svg",
+		"description": "Anthropic研究：AI如何改变工作方式。通过调查132名工程师和研究人员，探讨AI对软件开发工作的影响。",
+		"tags": ["AI", "研究", "工作", "Anthropic"],
+		"stars": 5
 	}
 ]
