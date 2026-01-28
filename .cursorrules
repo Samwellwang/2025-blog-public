@@ -1,0 +1,120 @@
+# 项目概述
+这是一个基于 Next.js 16 的个人博客项目，使用 TypeScript、React 19、Tailwind CSS 构建。
+
+# 技术栈
+- **框架**: Next.js 16 (App Router)
+- **语言**: TypeScript (严格模式)
+- **UI 库**: React 19
+- **样式**: Tailwind CSS 4
+- **状态管理**: Zustand
+- **数据获取**: SWR
+- **包管理器**: pnpm
+- **代码格式化**: Prettier (使用 prettier-plugin-tailwindcss)
+
+# 代码风格规范
+
+## 格式化规则
+- 使用 **tabs** 缩进，tabWidth 为 2
+- 使用 **单引号** (singleQuote: true)
+- **不使用分号** (semi: false)
+- JSX 属性使用单引号 (jsxSingleQuote: true)
+- 箭头函数参数避免括号 (arrowParens: "avoid")
+- 行宽限制: 160 字符
+- 尾随逗号: none
+- 括号同一行 (bracketSameLine: true)
+
+## 命名约定
+- **组件文件**: PascalCase (例如: `ArticleCard.tsx`, `HiCard.tsx`)
+- **组件名**: PascalCase (与文件名一致)
+- **函数/变量**: camelCase (例如: `useSize`, `maxSM`)
+- **类型/接口**: PascalCase (例如: `PublishForm`, `ImageItem`)
+- **常量**: UPPER_SNAKE_CASE 或 camelCase (根据上下文)
+- **目录**: kebab-case 或 camelCase (例如: `(home)`, `write-buttons`)
+
+## 文件组织
+- 使用 Next.js App Router 结构
+- 组件放在 `src/components/` 或页面同级目录
+- 页面特定组件放在页面目录下的 `components/` 文件夹
+- 服务函数放在 `services/` 文件夹
+- Hooks 放在 `hooks/` 文件夹
+- Store 放在 `stores/` 文件夹
+- 类型定义放在 `types.ts` 或与组件同文件
+
+## 导入顺序
+1. React 和 Next.js 相关
+2. 第三方库
+3. 内部组件 (@/ 路径别名)
+4. 工具函数和 hooks
+5. 类型定义
+6. 样式文件
+
+## 路径别名
+- 使用 `@/` 作为 `src/` 的别名
+- 示例: `import { useSize } from '@/hooks/use-size'`
+
+# React/Next.js 最佳实践
+
+## 组件规范
+- 使用函数组件和 TypeScript
+- 客户端组件使用 `'use client'` 指令
+- 组件文件使用 `.tsx` 扩展名
+- 默认导出组件
+- 组件名与文件名保持一致
+
+## Hooks 使用
+- 自定义 hooks 以 `use` 开头
+- 使用 Zustand 进行状态管理
+- 使用 SWR 进行数据获取和缓存
+
+## 样式规范
+- 优先使用 Tailwind CSS 类名
+- 响应式设计使用 `max-sm:`, `sm:`, `md:`, `lg:` 等前缀
+- 自定义样式放在 `src/styles/` 目录
+
+## 性能优化
+- 使用 Next.js 的 Image 组件优化图片
+- 合理使用 `'use client'` 指令，避免不必要的客户端组件
+- 使用 React 19 的新特性（如 React Compiler）
+
+# 代码质量
+
+## TypeScript
+- 启用严格模式
+- 为所有函数参数和返回值添加类型
+- 避免使用 `any`，优先使用 `unknown`
+- 使用类型推断，但明确复杂类型
+
+## 错误处理
+- 使用 try-catch 处理异步操作
+- 提供有意义的错误信息
+- 使用 SWR 的错误处理机制
+
+## 注释
+- 为复杂逻辑添加注释
+- 使用中文注释（项目主要使用中文）
+- 避免过度注释，代码应该自解释
+
+# 特殊约定
+
+## Markdown 处理
+- 博客内容使用 Markdown 格式
+- 使用 `marked` 库解析 Markdown
+- 使用 `shiki` 进行代码高亮
+
+## 文件上传
+- 图片上传使用 GitHub 作为存储
+- 支持 URL 和文件两种方式
+
+## 认证
+- 使用密码保护功能
+- 密码使用哈希存储
+
+# Git 提交规范
+- 提交信息使用中文或英文
+- 清晰描述提交内容
+
+# 开发工具
+- 使用 Prettier 自动格式化代码
+- 运行 `pnpm format` 格式化所有代码
+- 使用 `pnpm dev` 启动开发服务器（端口 2025）
+- 使用 Turbopack 进行构建
