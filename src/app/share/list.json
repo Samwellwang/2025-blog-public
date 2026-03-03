@@ -1,5 +1,13 @@
 [
 	{
+		"name": "MicroGPT explained interactively",
+		"url": "https://growingswe.com/blog/microgpt",
+		"logo": "/images/share/default_article.svg",
+		"description": "用可视化和交互方式讲解 microgpt，从 tokenizer、softmax、反向传播到 attention 与训练推理流程，适合入门理解 GPT 工作原理。",
+		"tags": ["大模型", "GPT", "可视化", "教程"],
+		"stars": 5
+	},
+	{
 		"name": "大模型原理及KV缓存的应用",
 		"url": "https://ngrok.com/blog/prompt-caching/",
 		"logo": "/images/share/大模型的原理.svg",
