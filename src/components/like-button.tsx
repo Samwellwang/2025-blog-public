@@ -12,9 +12,10 @@ type LikeButtonProps = {
 	delay?: number
 }
 
-const ENDPOINT = 'https://blog-liker.yysuni1001.workers.dev/api/like'
+// 走同源 /api/like，由 Next 代理到 Flask，避免跨域与 GET 缓存问题
+const ENDPOINT = '/api/like'
 
-export default function LikeButton({ slug = 'yysuni', delay, className }: LikeButtonProps) {
+export default function LikeButton({ slug = 'samwell', delay, className }: LikeButtonProps) {
 	const [liked, setLiked] = useState(false)
 	const [show, setShow] = useState(false)
 	const [justLiked, setJustLiked] = useState(false)
@@ -41,7 +42,7 @@ export default function LikeButton({ slug = 'yysuni', delay, className }: LikeBu
 	}, [])
 
 	const { data: fetchedCount, mutate } = useSWR(slug ? `${ENDPOINT}?slug=${encodeURIComponent(slug)}` : null, fetcher, {
-		revalidateOnFocus: false,
+		revalidateOnFocus: true,
 		dedupingInterval: 1000 * 10
 	})
 
