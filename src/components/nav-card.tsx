@@ -24,8 +24,8 @@ import { cn } from '@/lib/utils'
 import { useSize } from '@/hooks/use-size'
 
 export const styles = {
-	width: 280,
-	height: 434,
+	width: 270,
+	height: 380,
 	order: 2
 }
 
@@ -33,31 +33,31 @@ const list = [
 	{
 		icon: ScrollOutlineSVG,
 		iconActive: ScrollFilledSVG,
-		label: '近期文章',
+		label: '文章',
 		href: '/blog'
 	},
-	{
-		icon: ProjectsOutlineSVG,
-		iconActive: ProjectsFilledSVG,
-		label: '我的项目',
-		href: '/projects'
-	},
+	// {
+	// 	icon: ProjectsOutlineSVG,
+	// 	iconActive: ProjectsFilledSVG,
+	// 	label: '我的项目',
+	// 	href: '/projects'
+	// },
 	{
 		icon: AboutOutlineSVG,
 		iconActive: AboutFilledSVG,
-		label: '关于网站',
+		label: '关于',
 		href: '/about'
 	},
 	{
 		icon: ShareOutlineSVG,
 		iconActive: ShareFilledSVG,
-		label: '推荐分享',
+		label: '收藏',
 		href: '/share'
 	},
 	{
 		icon: WebsiteOutlineSVG,
 		iconActive: WebsiteFilledSVG,
-		label: '优秀博客',
+		label: '动态',
 		href: '/bloggers'
 	}
 ]
@@ -131,7 +131,7 @@ export default function NavCard() {
 				<Link className='flex items-center gap-3' href='/'>
 					<Image src='/images/avatar2.png' alt='avatar' width={40} height={40} style={{ boxShadow: ' 0 12px 20px -5px #E2D9CE' }} className='rounded-full' />
 					{form === 'full' && <span className='font-averia mt-1 text-2xl leading-none font-medium'>Samwell</span>}
-					{form === 'full' && <span className='text-brand mt-2 text-xs font-medium'>(开发中)</span>}
+					{form === 'full' && <span className='text-brand mt-2 text-xs font-medium'>(学习ing...)</span>}
 				</Link>
 
 				{(form === 'full' || form === 'icons') && (

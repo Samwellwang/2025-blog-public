@@ -54,7 +54,7 @@ export default function HiCard({ name }: HiCardProps) {
 				<span className='inline-block text-red-500 transition-colors duration-500 hover:text-blue-500' onClick={toggleGreeting}>
 					{greeting}
 				</span>{' '}
-				<br /> I'm <span className='text-linear text-[32px]'>{name}</span> , Nice to <br /> meet you!
+				<br /> Here is  Samwell  <br /><span className='text-linear text-[24px]'>Just a normal programmer~</span>
 			</h1>
 		</Card>
 	)
